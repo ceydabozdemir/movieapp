@@ -5,10 +5,10 @@ export class MovieRepository{
 
     constructor(){
         this.movies= [
-        {id: 1, title:"film 1", description:"film1 açıklama", imageUrl: "1.jpeg", isPopular:false },
-        {id: 2, title:"film 2", description:"film2 açıklama", imageUrl: "2.jpeg", isPopular:true},
-        {id: 3, title:"film 3", description:"film3 açıklama", imageUrl: "3.jpeg", isPopular:false},
-        {id: 4, title:"film 4", description:"film4 açıklama", imageUrl: "4.jpeg", isPopular:true }
+        {id: 1, title:"film 1", description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis tempora voluptatum eius at dolorum ab dolorem quisquam eveniet commodi ducimus. Voluptates sint provident veniam impedit laudantium, ut quaerat quae consequatur!", imageUrl: "1.jpeg", isPopular:false, datePublished: new Date(2022,16,12) },
+        {id: 2, title:"film 2", description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis tempora voluptatum eius at dolorum ab dolorem quisquam eveniet commodi ducimus. Voluptates sint provident veniam impedit laudantium, ut quaerat quae consequatur!", imageUrl: "2.jpeg", isPopular:true, datePublished: new Date(2022,16,12)},
+        {id: 3, title:"film 3", description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis tempora voluptatum eius at dolorum ab dolorem quisquam eveniet commodi ducimus. Voluptates sint provident veniam impedit laudantium, ut quaerat quae consequatur!", imageUrl: "3.jpeg", isPopular:false, datePublished: new Date(2022,16,12)},
+        {id: 4, title:"film 4", description:"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis tempora voluptatum eius at dolorum ab dolorem quisquam eveniet commodi ducimus. Voluptates sint provident veniam impedit laudantium, ut quaerat quae consequatur!", imageUrl: "4.jpeg", isPopular:true, datePublished: new Date(2022,16,12) }
     ];
     }
 
