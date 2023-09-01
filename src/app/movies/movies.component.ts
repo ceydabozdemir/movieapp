@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Movie } from '../models/movie';
 import { MovieRepository } from '../models/movie.repository';
 
+declare let alertify: any;
+
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -32,10 +35,16 @@ export class MoviesComponent {
     $event.target.innerText="Listeden Çıkar"
     $event.target.classList.remove('btn-outline-dark');
     $event.target.classList.add('btn-danger');
-   } else{
+    
+    alertify.success(movie.title + 'listene eklendi');
+
+   } 
+   else{
     $event.target.innerText="Listeye Ekle"
     $event.target.classList.remove('btn-danger');
     $event.target.classList.add('btn-outline-dark');
+
+    alertify.error(movie.title + 'listeden çıkarıldı')
    }
   }
 }
