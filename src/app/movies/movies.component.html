@@ -30,11 +30,20 @@
     <div class="col-md-8">
       <div class="card-body">
         <h2 class="card-title">{{item.title | titlecase }}</h2>
-        <p class="card-text">{{item.description | summary: 100}}</p>
+        <p class="card-text">{{item.description | summary: 50}}</p>
         <p class="card-text">{{item.datePublished | date}}</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-        <button class="btn btn-sm btn-outline-primary">Details</button>
+        
       </div>
+        <!-- <button class="btn btn-sm btn-outline-primary">Details</button> -->
+        <!-- <button (click)= "addToList()" class="btn btn-sm btn-primary">Listeye Ekle</button> -->
+        <!-- <button type="button" class="btn btn-secondary">Listeye Ekle</button> -->
+        <!-- <button type="button" class="btn btn-outline-primary">Detaylar</button> -->
+        <!-- <button type="button" class="btn btn-outline-secondary">Listeye Ekle</button> -->
+        <!-- <button type="button" class="btn btn-outline-secondary">Detaylar</button>
+        <button type="button" class="btn btn-outline-danger">Listene Ekle</button> -->
+        <!-- <button type="button" class="btn btn-outline-dark">Listeye Ekle</button> --> 
+        <button type="button" class="btn btn-dark ms-3">Detay</button>
+        <button (click)= "addToList($event,item)" class="btn btn-outline-dark ms-2"> Listeye ekle</button>
     </div>
   </div>
   </div>
