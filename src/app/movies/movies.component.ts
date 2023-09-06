@@ -1,34 +1,46 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from '../models/movie';
 import { MovieRepository } from '../models/movie.repository';
+import { AlertifyService } from './sevice/ alertify.service';
 
 declare let alertify: any;
-
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit {
   title = "Film Listesi";
-  movies: Movie[];
-  popularMovies: Movie[];
+  movies: Movie[]= [];
+  popularMovies: Movie[]= [];
   movieRepository: MovieRepository;
+  
   
   filterText:string="";
   
-
-
-  constructor() {
-    this.movieRepository= new MovieRepository();
+  constructor(private alertify: AlertifyService,
+    private http: HttpClient) {
+      this.movieRepository= new MovieRepository();
     this.movies= this.movieRepository.getMovies();
     this.popularMovies= this.movieRepository.getPopularMovies();
-  }
-  ngOnInit():void {
 
-  }
-  // movies = ["film 1", "film 2", "film 3", "film 4"]
+}
+
+ngOnInit(): void {
+  this.http.get<Movie[]>("http://localhost:3000/movies").subscribe((data: Movie[]) => {
+    this.movies = data;
+
+
+    console.log(this.movies);
+    console.log(this.filterText);
+  });
+
+  this.http.get("https://jsonplaceholder.typicode.com/users").subscribe(data => {
+    console.log(data);
+  })
+}
 
   addToList($event: any, movie: Movie){
    if($event.target.classList.contains('btn-outline-dark')){
@@ -36,7 +48,7 @@ export class MoviesComponent {
     $event.target.classList.remove('btn-outline-dark');
     $event.target.classList.add('btn-danger');
     
-    alertify.success(movie.title + 'listene eklendi');
+   this.alertify.success(movie.title + 'listene eklendi');
 
    } 
    else{
@@ -44,7 +56,7 @@ export class MoviesComponent {
     $event.target.classList.remove('btn-danger');
     $event.target.classList.add('btn-outline-dark');
 
-    alertify.error(movie.title + 'listeden çıkarıldı')
+    this.alertify.error(movie.title + 'listeden çıkarıldı')
    }
   }
 }

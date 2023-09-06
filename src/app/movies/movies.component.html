@@ -1,3 +1,5 @@
+
+
 <div *ngIf= "movies.length>0; else no_movies" >
   <h1> {{title}}</h1>
   
@@ -31,7 +33,7 @@
       <div class="card-body">
         <h2 class="card-title">{{item.title | titlecase }}</h2>
         <p class="card-text">{{item.description | summary: 50}}</p>
-        <p class="card-text">{{item.datePublished | date}}</p>
+        <!-- <p class="card-text">{{item.datePublished | date}}</p> -->
         
       </div>
         <!-- <button class="btn btn-sm btn-outline-primary">Details</button> -->
