@@ -20,7 +20,7 @@ export class MoviesComponent implements OnInit {
   
   filterText:string="";
   
-  constructor(private alertify: AlertifyService,
+  constructor(public alertify: AlertifyService,
     private http: HttpClient) {
       this.movieRepository= new MovieRepository();
     this.movies= this.movieRepository.getMovies();
